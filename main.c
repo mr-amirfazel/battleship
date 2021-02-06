@@ -1,5 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include "menu_funcs.h"
+#include "game_algorythm.h"
 void Menu()
 {
     printf("1. Play with a Friend\n2. Play with a bot\n3.Load game\n4.Load last game\n5. setting\n6. Score Board\n7. Exit\n");
@@ -14,6 +17,8 @@ void Score_Board();
 void Exit();
 int main()
 {
+
+//system(COLOR )
     Menu();
     int x;
     scanf("%d",&x);
@@ -45,14 +50,20 @@ Menu_dec(int* x)
 void Play_with_a_friend()
 {
     //First player:
-    printf("First player:\n\t1.choose user\n");
-    printf("\t1.choose from available users\n2.new users");
+    printf("First player:\n             1.choose user:\n");
+    printf("\t1.choose from available users\n\t2.new users");
     int user_decide;
     scanf("%d",&user_decide);
     //place to add adequate function
     // to show users list or add new user
     //to the binary file database
-
+    switch(user_decide)
+    {
+    case 1:
+        show_user();
+    case 2:
+        add_user();
+    }
 
 
     printf("2.put ships\n\t1.Auto\n2.Manual");
