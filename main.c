@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <windows.h>
 #include "menu_funcs.h"
 #include "game_algorythm.h"
 void Menu()
@@ -70,8 +71,12 @@ void Play_with_a_friend()
     int ship_dec;
     scanf("%d",&ship_dec);
     //functions to lead the user to the map ordering
+    switch(ship_dec)
+ case 1:
+    //havent activated yet
 
-
+ case 2:
+    ship_set();
 
 
     //Second player:
