@@ -1,14 +1,18 @@
 #ifndef GAME_ALGORYTHM_H_INCLUDED
 #define GAME_ALGORYTHM_H_INCLUDED
 #define max 11
+int ship_num=1;
  int map[max][max];
 struct ship{
     int len;
-    int number;
-    struct node *next_part;
+    int index;
+    int indicator;
+    //int row;
+    //int col;
+    struct ship* next;
 
 };
-typedef struct node ship;
+typedef struct ship ship;
 ship* head1;
 ship* head2;
 ship* head3;
@@ -25,6 +29,7 @@ void collector();
 void show_map();
 void map_set(int state,int row,int col,int len);
 void link_maker(int state,int row,int col,int len);
+void Insert1(int i,int number,int len);
 void ship_set()
 {
     head1=NULL;
@@ -250,6 +255,36 @@ void show_map()
 }
 void link_maker(int state,int row,int col,int len)
 {
+    for(int i=1;i<=len;i++)
+    {
+        Insert1(i,ship_num,len);
+    }
 
+}
+//the proper func to make linked list for ship of size 5x1
+void Insert1(int i,int num,int len)
+{
+    ship* temp=(ship *)malloc(sizeof(struct ship));
+     ship* temp2=(ship *)malloc(sizeof(struct ship));
+
+   temp->index=i;
+    temp->indicator=num;
+    temp->len=len;
+    temp->next=NULL;
+    temp2=head1;
+    if(head1==NULL)
+    {
+        head1=temp;
+    }
+    else
+    {
+
+        while(temp2->next!=NULL)
+        {
+            temp2=temp2->next;
+        }
+        temp2->next=temp;
+
+    }
 }
 #endif // GAME_ALGORYTHM_H_INCLUDED
