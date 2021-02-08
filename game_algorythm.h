@@ -39,8 +39,9 @@ void Insert7(int i,int number,int len,int row,int col);
 void Insert8(int i,int number,int len,int row,int col);
 void Insert9(int i,int number,int len,int row,int col);
 void Insert10(int i,int number,int len,int row,int col);
-int ships_position_condition_check();
+int ships_position_condition_check(int state,int row,int col,int len);
 int search_ship(int row,int col);
+
 void ship_set()
 {
     head1=NULL;
@@ -129,12 +130,6 @@ void collector()
         else
             row++;
     }
-    if(ships_position_condition_check()==0)
-    {
-       printf("You disobeyed the laws. start over");
-       ship_set();
-    }
-
     ship_num++;
     //2nd ship: 3x1
     printf("enter info for ship with length of 3x1:\n\n");
@@ -150,7 +145,7 @@ void collector()
         else
             row++;
     }
-    if(ships_position_condition_check()==0)
+    if(ships_position_condition_check(state,row,col,len)==0)
     {
        printf("You disobeyed the laws. start over");
        ship_set();
@@ -170,7 +165,7 @@ void collector()
         else
             row++;
     }
-    if(ships_position_condition_check()==0)
+    if(ships_position_condition_check(state,row,col,len)==0)
     {
        printf("You disobeyed the laws. start over");
        ship_set();
@@ -190,7 +185,7 @@ void collector()
         else
             row++;
     }
-    if(ships_position_condition_check()==0)
+    if(ships_position_condition_check(state,row,col,len)==0)
     {
        printf("You disobeyed the laws. start over");
        ship_set();
@@ -210,7 +205,7 @@ void collector()
         else
             row++;
     }
-    if(ships_position_condition_check()==0)
+    if(ships_position_condition_check(state,row,col,len)==0)
     {
        printf("You disobeyed the laws. start over");
        ship_set();
@@ -230,7 +225,7 @@ void collector()
         else
             row++;
     }
-    if(ships_position_condition_check()==0)
+    if(ships_position_condition_check(state,row,col,len)==0)
     {
        printf("You disobeyed the laws. start over");
        ship_set();
@@ -250,7 +245,7 @@ void collector()
         else
             row++;
     }
-    if(ships_position_condition_check()==0)
+    if(ships_position_condition_check(state,row,col,len)==0)
     {
        printf("You disobeyed the laws. start over");
        ship_set();
@@ -270,7 +265,7 @@ void collector()
         else
             row++;
     }
-    if(ships_position_condition_check()==0)
+    if(ships_position_condition_check(state,row,col,len)==0)
     {
        printf("You disobeyed the laws. start over");
        ship_set();
@@ -290,7 +285,7 @@ void collector()
         else
             row++;
     }
-    if(ships_position_condition_check()==0)
+    if(ships_position_condition_check(state,row,col,len)==0)
     {
        printf("You disobeyed the laws. start over");
        ship_set();
@@ -310,7 +305,7 @@ void collector()
         else
             row++;
     }
-    if(ships_position_condition_check()==0)
+    if(ships_position_condition_check(state,row,col,len)==0)
     {
        printf("You disobeyed the laws. start over");
        ship_set();
@@ -664,120 +659,46 @@ void Insert10(int i,int number,int len,int row,int col)
 
     }
 }
-int ships_position_condition_check()
+int ships_position_condition_check(int state,int row, int col,int len)
 {
-    int flag=1;
-    //return 1 for being same ships
-    //return 0 for being different ships
-    for(int i=0;i<max;i++)
+
+    if(state==1)
     {
-        for(int j=0;j<max;j++)
+        if(len==3)
         {
-
-            if(map[i][j]==83)
-            {
-                if(map[i-1][j]==83)
-                {
-                   if(search_ship(i,j)!=search_ship(i-1,j))
-                        return 0;
-
-                }
-                if(map[i+1][j]==83)
-                {
-                    if(search_ship(i,j)!=search_ship(i+1,j))
-                        return 0;
-
-                }
-                if(map[i][j-1]==83)
-                {
-                    if(search_ship(i,j)!=search_ship(i,j-1))
-                        return 0;
-                }
-                if(map[i][j+1]==83)
-                {
-                    if(search_ship(i,j)!=search_ship(i,j+1))
-                        return 0;
-                }
-            }
-
+            if((map[row-1][col]==83)||(map[row+1][col]==83)||(map[row][col-1]==83)||(map[row-1][col+1]==83)||(map[row+1][col+1]==83)||(map[row][col+3]==83)||(map[row-1][col+2]==83)||(map[row+1][col+2]==83))
+            return 0;
         }
+        if(len==2)
+        {
+            if((map[row][col-1]==83)||(map[row-1][col]==83)||(map[row+1][col]==83)||(map[row][col+2]==83)||(map[row-1][col+1]==83)||(map[row+1][col+1]==83))
+                return 0;
+        }
+        if(len==1)
+        {
+            if((map[row][col+1]==83)||(map[row][col-1]==83)||(map[row-1][col]==83)||(map[row+1][col]==83))
+                return 0;
+        }
+        return 1;
     }
-    return 1;
-}
-int search_ship(int row,int col)
-{
-    ship* temp;
-    temp=head1;
-    while(temp!=NULL)
+    else if(state==2)
     {
-        if((temp->row=row)&&(temp->col=col))
-            return temp->indicator;
-        temp=temp->next;
+        if(len==3)
+        {
+            if((map[row-1][col]==83)||(map[row][col-1]==83)||(map[row][col+1]==83)||(map[row+1][col-1]==83)||(map[row+1][col+1]==83)||(map[row+2][col-1]==83)||(map[row+2][col+1]==83)||(map[row+3][col]==83))
+                return 0;
+        }
+        if(len==2)
+        {
+            if((map[row-1][col]==83)||(map[row][col-1]==83)||(map[row][col+1]==83)||(map[row+1][col-1]==83)||(map[row+1][col+1]==83)||(map[row+2][col]==83))
+                return 0;
+        }
+        if(len==1)
+        {
+             if((map[row][col+1]==83)||(map[row][col-1]==83)||(map[row-1][col]==83)||(map[row+1][col]==83))
+                return 0;
+        }
+        return 1;
     }
-    temp=head2;
-    while(temp!=NULL)
-    {
-        if((temp->row=row)&&(temp->col=col))
-            return temp->indicator;
-        temp=temp->next;
-    }
-    temp=head3;
-    while(temp!=NULL)
-    {
-        if((temp->row=row)&&(temp->col=col))
-            return temp->indicator;
-        temp=temp->next;
-    }
-    temp=head4;
-    while(temp!=NULL)
-    {
-        if((temp->row=row)&&(temp->col=col))
-            return temp->indicator;
-        temp=temp->next;
-    }
-    temp=head5;
-    while(temp!=NULL)
-    {
-        if((temp->row=row)&&(temp->col=col))
-            return temp->indicator;
-        temp=temp->next;
-    }
-    temp=head6;
-    while(temp!=NULL)
-    {
-        if((temp->row=row)&&(temp->col=col))
-            return temp->indicator;
-        temp=temp->next;
-    }
-    temp=head7;
-    while(temp!=NULL)
-    {
-        if((temp->row=row)&&(temp->col=col))
-            return temp->indicator;
-        temp=temp->next;
-    }
-
-    temp=head8;
-    while(temp!=NULL)
-    {
-        if((temp->row=row)&&(temp->col=col))
-            return temp->indicator;
-        temp=temp->next;
-    }
-    temp=head9;
-    while(temp!=NULL)
-    {
-        if((temp->row=row)&&(temp->col=col))
-            return temp->indicator;
-        temp=temp->next;
-    }
-    temp=head10;
-    while(temp!=NULL)
-    {
-        if((temp->row=row)&&(temp->col=col))
-            return temp->indicator;
-        temp=temp->next;
-    }
-
 }
 #endif // GAME_ALGORYTHM_H_INCLUDED
