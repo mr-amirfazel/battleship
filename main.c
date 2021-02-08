@@ -33,18 +33,25 @@ Menu_dec(int* x)
     {
     case 1:
         Play_with_a_friend();
+        break;
     case 2:
         Play_with_Bot();
+        break;
     case 3:
         Load_game();
+        break;
     case 4:
         Load_last_game();
+        break;
     case 5:
         Settings();
+        break;
     case 6:
         Score_Board();
+        break;
     case 7:
         Exit();
+        break;
     }
 
 }
@@ -62,8 +69,10 @@ void Play_with_a_friend()
     {
     case 1:
         show_user();
+        break;
     case 2:
         add_user();
+        break;
     }
 
 
@@ -72,11 +81,16 @@ void Play_with_a_friend()
     scanf("%d",&ship_dec);
     //functions to lead the user to the map ordering
     switch(ship_dec)
- case 1:
+    {
+       case 1:
     //havent activated yet
+    break;
 
  case 2:
     ship_set();
+    break;
+    }
+
 
 
     //Second player:
