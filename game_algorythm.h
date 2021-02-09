@@ -43,6 +43,13 @@ void Insert10(int i,int number,int len,int row,int col);
 int ships_position_condition_check(int state,int row,int col,int len);
 int search_ship(int row,int col);
 void ship2_set();
+void show_intial_map2();
+void collector2();
+void map2_set(int state,int row,int col,int len);
+void show_map_2();
+int ships_position_condition_check_2(int state,int row,int col,int len);
+
+
 void ship_set()
 {
     head1=NULL;
@@ -62,11 +69,7 @@ void ship_set()
 
 
 }
-void show_intial_map2();
-void collector2();
-void map2_set(int state,int row,int col,int len);
-void show_map_2();
-int ships_position_condition_check_2(int state,int row,int col,int len);
+
 void ship2_set()
 {
     printf("this is  your main map comrade: \n\n ");
@@ -135,7 +138,7 @@ void show_intial_map2()
             }
             else if(j==0)
             {
-                map[i][j]=n;
+                map_2[i][j]=n;
                 n++;
                 printf("%d\t",map_2[i][j]);
             }
@@ -152,7 +155,7 @@ void show_intial_map2()
 
    }
 }
-}
+
 void game_inst()
 {
     printf("you have 1 ship of size 5, 2 ships of size 3,3 ships of size 2, and 4 ships of size 1");
@@ -555,7 +558,7 @@ void show_map()
    }
 }
 //insert funcs for linked list may get a change
-{
+
 
 
 //the proper func to make linked list for ship of size 5x1
@@ -827,7 +830,7 @@ void Insert10(int i,int number,int len,int row,int col)
 
     }
 }
-}
+
 int ships_position_condition_check(int state,int row, int col,int len)
 {
 

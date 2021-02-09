@@ -4,6 +4,7 @@
 #include <windows.h>
 #include "menu_funcs.h"
 #include "game_algorythm.h"
+#include "game_main.h"
 void Menu()
 {
     printf("1. Play with a Friend\n2. Play with a bot\n3.Load game\n4.Load last game\n5. setting\n6. Score Board\n7. Exit\n");
@@ -129,6 +130,7 @@ switch(ship2_dec)
     break;
     }
 
+    game();
 
 }
 void Play_with_Bot()
