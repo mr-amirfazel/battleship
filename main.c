@@ -8,6 +8,7 @@ void Menu()
 {
     printf("1. Play with a Friend\n2. Play with a bot\n3.Load game\n4.Load last game\n5. setting\n6. Score Board\n7. Exit\n");
 }
+void intro();
 void Menu_dec(int* x);
 void Play_with_a_friend();
 void Play_with_Bot();
@@ -18,7 +19,7 @@ void Score_Board();
 void Exit();
 int main()
 {
-
+    intro();
 //system(COLOR )
     Menu();
     int x;
@@ -101,6 +102,15 @@ void Play_with_a_friend()
     //place to add adequate function
     // to show users list or add new user
     //to the binary file database
+    switch(user2_decide)
+    {
+    case 1:
+        show_user();
+        break;
+    case 2:
+        add_user();
+        break;
+    }
 
 
 
@@ -108,7 +118,16 @@ void Play_with_a_friend()
     int ship2_dec;
     scanf("%d",&ship2_dec);
     //functions to lead the user to the map ordering
+switch(ship2_dec)
+    {
+       case 1:
+    //havent activated yet
+    break;
 
+ case 2:
+    ship_set();
+    break;
+    }
 
 
 }
@@ -138,4 +157,9 @@ void Score_Board()
 void Exit()
 {
     return 0;
+}
+void intro()
+{
+    printf("\t\t welcome dear user to\t\t\n");
+    printf("\t      the legend of Sea Battle\t\n\n\n\n\n");
 }
