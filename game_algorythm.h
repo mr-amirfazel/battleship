@@ -560,6 +560,8 @@ void collector2()
     }
     //ship2_num++;
 }
+
+
 void map_set(int state,int row,int col,int len)
 {
     //for that state is horizental
@@ -577,7 +579,7 @@ void map_set(int state,int row,int col,int len)
         else
         {
              printf("CANT FIT SHIP IN MAP!!!!!!! \a");
-            // ship_set();
+             ship_set();
         }
 
 
@@ -596,7 +598,7 @@ void map_set(int state,int row,int col,int len)
           else
         {
              printf("CANT FIT SHIP IN MAP!!!!!!! \a");
-            // ship_set();
+             ship_set();
         }
     }
 }
@@ -646,7 +648,6 @@ void Insert1(int i,int num,int len,int row,int col)
 {
     ship* temp=(ship *)malloc(sizeof(struct ship));
      ship* temp2=(ship *)malloc(sizeof(struct ship));
-     //ship* temp=&map[row][col];
 
    temp->index=i;
     temp->indicator=num;

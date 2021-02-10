@@ -142,6 +142,7 @@ void Play_with_Bot()
 {
 //single player mode
 //here we go again :|
+play_with_adolf();
 }
 void Load_game()
 {

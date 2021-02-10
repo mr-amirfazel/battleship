@@ -27,8 +27,21 @@ void display_game_map(int playground[max][max]);
 int end_of_game_condition_check();
 int list1_check();
 int list2_check();
+void map_initializer(int playground[max][max]);
 
-void map_initializer(int map[max][max]);
+
+// hoosh masnooii part :)
+void play_with_adolf();
+void ai_begining();
+void choose_user();
+void user_map();
+void collect_info_and_modify_users_map(int users_map[max][max]);
+void user_map_set(int state,int row,int col, int len,int playground[max][max]);
+void user_insert(int i,int number,int row,int col,int len);
+void user_ship_position_check(int state,int row,int col,int len,int playground[max][max]);
+ship* user_head;
+
+
 void game()
 {
     Sleep(3000);
@@ -60,7 +73,7 @@ void game()
 
 }
 
-void map_initializer(int map[max][max])
+void map_initializer(int playground[max][max])
 {
      int n=1,t=1;
 
@@ -71,21 +84,21 @@ void map_initializer(int map[max][max])
        {
             if((i==0)&&j==0)
                 {
-                    map[i][j]=0;
+                    playground[i][j]=0;
                 }
             else if(i==0)
             {
-                map_2[i][j]=t;
+                playground[i][j]=t;
                 t++;
             }
             else if(j==0)
             {
-                map[i][j]=n;
+                playground[i][j]=n;
                 n++;
             }
             else
             {
-                map[i][j]=79;
+                playground[i][j]=79;
             }
 
        }
@@ -362,5 +375,431 @@ int list2_check()
         return 1;
     else
         return 0;
+}
+//hoosh masnooii
+//case 2 :|
+void play_with_adolf()
+{
+    user_head=NULL;
+    ai_begining();
+    choose_user();
+    user_map();
+
+}
+void ai_begining()
+{
+     printf("\n\n\tWelcome to single player mode!!!!\t");
+    Sleep(2500);
+    printf("\n\tIm Adolf and we are gonna be components today!!!\t\n\n");
+    Sleep(2500);
+    printf("\tMy mission is to terminate as many as USSR ships. whats yours?\t");
+    Sleep(2000);
+    printf("\n\tyou know... im just kidding its AI humor");
+    Sleep(2000);
+    printf("\n\tor maybe not humor...");
+    Sleep(300);
+    system("cls");
+    Beep(700,100);
+    Sleep(5);
+    Beep(900,100);
+    Sleep(5);
+    Beep(700,100);
+    Sleep(5);
+    Beep(900,100);
+    Sleep(5);
+    Beep(700,100);
+    Sleep(5);
+    Beep(900,100);
+    Beep(400,700);
+    Sleep(5);
+    Beep(900,100);
+    Sleep(5);
+    Beep(700,100);
+    Sleep(5);
+    Beep(900,100);
+    Sleep(5);
+    Beep(700,100);
+    Sleep(5);
+    Beep(900,100);Beep(700,100);
+    Sleep(5);
+    Beep(900,100);
+    Sleep(5);
+    Beep(700,100);
+    Sleep(5);
+    Beep(900,100);
+    Sleep(5);
+    Beep(700,100);
+    Sleep(5);
+    Beep(900,100);Beep(700,100);
+    Sleep(5);
+    Beep(900,100);
+    Sleep(5);
+    Beep(700,100);
+    Sleep(5);
+    Beep(900,100);
+    Sleep(5);
+    Beep(700,100);
+    Sleep(5);
+    Beep(900,100);Beep(700,100);
+    Sleep(5);
+    Beep(900,100);
+    Sleep(5);
+    Beep(700,100);
+    Sleep(5);
+    Beep(900,100);
+    Sleep(5);
+    Beep(700,100);
+    Sleep(5);
+    Beep(900,100);
+    printf("\n\n HEAR that soldier...we are currently at war . good luck\n");
+}
+void choose_user()
+{
+     printf("\nplayer:\n\t1.choose user\n");
+    printf("\t1.choose from available users\n2.new users");
+    int user_dec;
+    scanf("%d",&user_dec);
+     switch(user_dec)
+    {
+    case 1:
+        show_user();
+        break;
+    case 2:
+        add_user();
+        break;
+    }
+}
+void user_map()
+{
+    int user_vs_bot_map[max][max];
+    map_initializer(user_vs_bot_map);
+    printf("this is your raw map:\n\n");
+    display_game_map(user_vs_bot_map);
+    collect_info_and_modify_users_map(user_vs_bot_map);
+
+}
+void collect_info_and_modify_users_map(int users_map[max][max])
+{
+    int users_ship_number=1;
+
+    //first ship 5x1
+    printf("enter info for ship with length of 5x1\n\n");
+    printf("1)Horizontal\n2)Vertical ::\n");
+    int state;
+    int row,col,len;
+    len=5;
+    scanf("%d",&state);
+    scanf("%d",&row);
+    scanf("%d",&col);
+    user_map_set(state,row,col,len,users_map);
+    for(int i=1;i<=len;i++)
+    {
+        user_insert(i,users_ship_number,len,row,col);
+        if(state==1)
+            col++;
+        else
+            row++;
+    }
+    users_ship_number++;
+    //2nd ship: 3x1
+    printf("enter info for ship with length of 3x1:\n\n");
+    printf("1)Horizontal\n2)Vertical ::\n");
+    scanf("%d%d%d",&state,&row,&col);
+    len=3;
+    if(user_ship_position_check(state,row,col,len,users_map)==0)
+    {
+       printf("You disobeyed the laws. start over");
+       collect_info_and_modify_users_map(users_map);
+    }
+    user_map_set(state,row,col,len,users_map);
+
+    for(int i=1;i<=len;i++)
+    {
+        user_insert(i,users_ship_number,len,row,col);
+        if(state==1)
+            col++;
+        else
+            row++;
+    }
+    users_ship_number++;
+    //3rd ship: 3x1
+    printf("enter info for ship with length of 3x1:\n\n");
+    printf("1)Horizontal\n2)Vertical ::\n");
+    scanf("%d%d%d",&state,&row,&col);
+    len=3;
+    if(user_ship_position_check(state,row,col,len,users_map)==0)
+    {
+       printf("You disobeyed the laws. start over");
+         collect_info_and_modify_users_map(users_map);
+    }
+   user_map_set(state,row,col,len,users_map);
+
+    for(int i=1;i<=len;i++)
+    {
+        user_insert(i, users_ship_number,len,row,col);
+        if(state==1)
+            col++;
+        else
+            row++;
+    }
+     users_ship_number++;
+    //4th ship: 2x1
+    printf("enter info for ship with length of 2x1:\n\n");
+    printf("1)Horizontal\n2)Vertical ::\n");
+    scanf("%d%d%d",&state,&row,&col);
+    len=2;
+    if(user_ship_position_check(state,row,col,len,users_map)==0)
+    {
+       printf("You disobeyed the laws. start over");
+         collect_info_and_modify_users_map(users_map);
+    }
+   user_map_set(state,row,col,len,users_map);
+
+    for(int i=1;i<=len;i++)
+    {
+       user_insert(i, users_ship_number,len,row,col);
+        if(state==1)
+            col++;
+        else
+            row++;
+    }
+     users_ship_number++;
+    //5th ship: 2x1
+    printf("enter info for ship with length of 2x1:\n\n");
+    printf("1)Horizontal\n2)Vertical ::\n");
+    scanf("%d%d%d",&state,&row,&col);
+    len=2;
+    if(user_ship_position_check(state,row,col,len,users_map)==0)
+    {
+       printf("You disobeyed the laws. start over");
+        collect_info_and_modify_users_map(users_map);
+    }
+    user_map_set(state,row,col,len,users_map);
+
+    for(int i=1;i<=len;i++)
+    {
+        user_insert(i, users_ship_number,len,row,col);
+        if(state==1)
+            col++;
+        else
+            row++;
+    }
+    users_ship_number++;
+    //6th ship: 2x1
+    printf("enter info for ship with length of 2x1:\n\n");
+    printf("1)Horizontal\n2)Vertical ::\n");
+    scanf("%d%d%d",&state,&row,&col);
+    len=2;
+    if(user_ship_position_check(state,row,col,len,users_map)==0)
+    {
+       printf("You disobeyed the laws. start over");
+         collect_info_and_modify_users_map(users_map);
+    }
+    user_map_set(state,row,col,len,users_map);
+
+    for(int i=1;i<=len;i++)
+    {
+        user_insert(i, users_ship_number,len,row,col);
+        if(state==1)
+            col++;
+        else
+            row++;
+    }
+     users_ship_number++;
+   //7th ship: 2x1
+    printf("enter info for ship with length of 4x1:\n\n");
+    printf("1)Horizontal\n2)Vertical ::\n");
+    scanf("%d%d%d",&state,&row,&col);
+    len=1;
+     if(user_ship_position_check(state,row,col,len,users_map)==0)
+    {
+       printf("You disobeyed the laws. start over");
+         collect_info_and_modify_users_map(users_map);
+    }
+    user_map_set(state,row,col,len,users_map);
+
+    for(int i=1;i<=len;i++)
+    {
+        user_insert(i, users_ship_number,len,row,col);
+        if(state==1)
+            col++;
+        else
+            row++;
+    }
+     users_ship_number++;
+    //8th ship: 2x1
+    printf("enter info for ship with length of 4x1:\n\n");
+    printf("1)Horizontal\n2)Vertical ::\n");
+    scanf("%d%d%d",&state,&row,&col);
+    len=1;
+     if(user_ship_position_check(state,row,col,len,users_map)==0)
+    {
+       printf("You disobeyed the laws. start over");
+         collect_info_and_modify_users_map(users_map);
+    }
+   user_map_set(state,row,col,len,users_map);
+
+    for(int i=1;i<=len;i++)
+    {
+        user_insert(i,users_ship_number,len,row,col);
+        if(state==1)
+            col++;
+        else
+            row++;
+    }
+     users_ship_number++;
+    //9th ship: 2x1
+    printf("enter info for ship with length of 4x1:\n\n");
+    printf("1)Horizontal\n2)Vertical ::\n");
+    scanf("%d%d%d",&state,&row,&col);
+    len=1;
+     if(user_ship_position_check(state,row,col,len,users_map)==0)
+    {
+       printf("You disobeyed the laws. start over");
+         collect_info_and_modify_users_map(users_map);
+    }
+    user_map_set(state,row,col,len,users_map);
+
+    for(int i=1;i<=len;i++)
+    {
+        user_insert(i,users_ship_number,len,row,col);
+        if(state==1)
+            col++;
+        else
+            row++;
+    }
+     users_ship_number++;
+    //10th ship: 2x1
+    printf("enter info for ship with length of 4x1:\n\n");
+    printf("1)Horizontal\n2)Vertical ::\n");
+    scanf("%d%d%d",&state,&row,&col);
+    len=1;
+    if(user_ship_position_check(state,row,col,len,users_map)==0)
+    {
+       printf("You disobeyed the laws. start over");
+       collect_info_and_modify_users_map(users_map);
+    }
+    user_map_set(state,row,col,len,users_map);
+
+    for(int i=1;i<=len;i++)
+    {
+        user_insert(i, users_ship_number,len,row,col);
+        if(state==1)
+            col++;
+        else
+            row++;
+    }
+    //ship2_num++;
+}
+
+void user_map_set(int state,int row,int col, int len,int playground[max][max])
+{
+    //for that state is horizental
+    if(state==1)
+    {
+        if((col+len)<=max)
+        {
+            for(int i=col;i<len+col;i++)
+            {
+                playground[row][i]=83;
+
+            }
+            display_game_map(playground);
+        }
+        else
+        {
+             printf("CANT FIT SHIP IN MAP!!!!!!! \a");
+             collect_info_and_modify_users_map(playground)
+        }
+
+
+    }
+    //for that state is vertical
+    else if(state==2)
+    {
+        if((row+len)<=max)
+        {
+            for(int i=row;i<len+row;i++)
+            {
+                playground[i][col]=83;
+            }
+            display_game_map(playground);
+        }
+          else
+        {
+             printf("CANT FIT SHIP IN MAP!!!!!!! \a");
+           collect_info_and_modify_users_map(playground);
+        }
+    }
+}
+void user_insert(int i,int number,int row,int col,int len)
+{
+    ship* temp=(ship *)malloc(sizeof(struct ship));
+     ship* temp2=(ship *)malloc(sizeof(struct ship));
+
+   temp->index=i;
+    temp->indicator=num;
+    temp->len=len;
+    temp->row=row;
+    temp->col=col;
+    temp->next=NULL;
+
+    if(user_head==NULL)
+    {
+        user_head=temp;
+    }
+
+    else
+    {
+        temp2=user_head;
+        while(temp2->next!=NULL)
+        {
+            temp2=temp2->next;
+        }
+        temp2->next=temp;
+
+    }
+}
+void user_ship_position_check(int state,int row,int col,int len,int playground[max][max])
+{
+    if(state==1)
+    {
+        if(len==3)
+        {
+            if((playground[row-1][col]==83)||(playground[row+1][col]==83)||(playground[row][col-1]==83)||(playground[row-1][col+1]==83)||(playground[row+1][col+1]==83)||(playground[row][col+3]==83)||(playground[row-1][col+2]==83)||(playground[row+1][col+2]==83))
+            return 0;
+        }
+        if(len==2)
+        {
+            if((playground[row][col-1]==83)||(playground[row-1][col]==83)||(playground[row+1][col]==83)||(playground[row][col+2]==83)||(playground[row-1][col+1]==83)||(playground[row+1][col+1]==83))
+                return 0;
+        }
+        if(len==1)
+        {
+            if((playground[row][col+1]==83)||(playground[row][col-1]==83)||(playground[row-1][col]==83)||(playground[row+1][col]==83))
+                return 0;
+        }
+        return 1;
+    }
+    else if(state==2)
+    {
+        if(len==3)
+        {
+            if((playground[row-1][col]==83)||(playground[row][col-1]==83)||(playground[row][col+1]==83)||(playground[row+1][col-1]==83)||(playground[row+1][col+1]==83)||(playground[row+2][col-1]==83)||(playground[row+2][col+1]==83)||(playground[row+3][col]==83))
+                return 0;
+        }
+        if(len==2)
+        {
+            if((playground[row-1][col]==83)||(playground[row][col-1]==83)||(playground[row][col+1]==83)||(playground[row+1][col-1]==83)||(playground[row+1][col+1]==83)||(playground[row+2][col]==83))
+                return 0;
+        }
+        if(len==1)
+        {
+             if((playground[row][col+1]==83)||(playground[row][col-1]==83)||(playground[row-1][col]==83)||(playground[row+1][col]==83))
+                return 0;
+        }
+        return 1;
+
+    }
 }
 #endif // GAME_MAIN_H_INCLUDED
