@@ -24,13 +24,15 @@ int search_in_map(int row,int col);
 //actually searches in link list #2
 int search_in_map_2(int row,int col);
 void display_game_map(int playground[max][max]);
-void end_of_game_condition_check();
-void list1_check();
-void list2_check();
+int end_of_game_condition_check();
+int list1_check();
+int list2_check();
 
 void map_initializer(int map[max][max]);
 void game()
 {
+    Sleep(3000);
+    system("cls");
     //player1 has the map of map_player1
     //player one plays on map_player1 but he tries to eliminate the map2
     //so every decision on map_player1 should be checked on map2
@@ -70,35 +72,32 @@ void map_initializer(int map[max][max])
             if((i==0)&&j==0)
                 {
                     map[i][j]=0;
-                  printf("\t");
                 }
             else if(i==0)
             {
                 map_2[i][j]=t;
                 t++;
-                printf("%d\t",map[i][j]);
             }
             else if(j==0)
             {
                 map[i][j]=n;
                 n++;
-                printf("%d\t",map[i][j]);
             }
             else
             {
                 map[i][j]=79;
-                printf("%c\t",map[i][j]);
-
             }
 
        }
-       printf("\n");
+
 
 
    }
 }
 void player1_turn()
 {
+    Sleep(3000);
+    system("cls");
     printf("\n this is your map at its last situation:\n\n");
     display_game_map(map_player1);
    printf("\n\nenter the coordination of attack starting by 1)row number\t2)column number:\n");
@@ -148,16 +147,23 @@ void player1_turn()
                map_player1[row+1][col]=87;
            }
        }
-       printf("\n you made one right shot. you get a bonus:\n");
+
+       printf("\n \tyou made one right shot. you get a bonus:\t\n");
        player1_turn();
    }
    else
     {
+        printf("\n\t SO Unlucky!!!!!   you only got water!!!!\t\n\n\n");
         map_player1[row][col]=87;
+        display_game_map(map_player1);
+        Sleep(3000);
+        system("cls");
     }
+
 }
 void player2_turn()
 {
+
     printf("\n this is your map at its last situation:\n\n");
     display_game_map(map_player2);
     printf("\n\nenter the coordination of attack starting by 1)row number\t2)column number:\n");
@@ -191,7 +197,7 @@ void player2_turn()
        remove_from_map(row,col);
        if((map[row][col-1]==83)||(map[row][col+1]==83)||(map[row-1][col]==83)||(map[row+1][col]==83))
        {
-           map_player1[row][col]=69;
+           map_player2[row][col]=69;
        }
        else
        {
@@ -334,14 +340,14 @@ void display_game_map(int playground[max][max])
 
    }
 }
-void end_of_game_condition_check()
+int end_of_game_condition_check()
 {
-    if(list1_check()&&list2_check())
+    if((list1_check())&&(list2_check()))
         return 1;
     else
         return 0;
 }
-void list1_check()
+int list1_check()
 {
     ship* temp=head1;
     if(temp!=NULL)
@@ -349,7 +355,7 @@ void list1_check()
     else
         return 0;
 }
-void list2_check()
+int list2_check()
 {
     ship* temp=head2;
     if(temp!=NULL)

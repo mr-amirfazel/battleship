@@ -163,6 +163,11 @@ void collector()
     printf("1)Horizontal\n2)Vertical ::\n");
     scanf("%d%d%d",&state,&row,&col);
     len=3;
+    if(ships_position_condition_check(state,row,col,len)==0)
+    {
+       printf("You disobeyed the laws. start over");
+       ship_set();
+    }
     map_set(state,row,col,len);
     for(int i=1;i<=len;i++)
     {
@@ -172,17 +177,18 @@ void collector()
         else
             row++;
     }
-    if(ships_position_condition_check(state,row,col,len)==0)
-    {
-       printf("You disobeyed the laws. start over");
-       ship_set();
-    }
+
     ship_num++;
     //3rd ship: 3x1
     printf("enter info for ship with length of 3x1:\n\n");
     printf("1)Horizontal\n2)Vertical ::\n");
     scanf("%d%d%d",&state,&row,&col);
     len=3;
+    if(ships_position_condition_check(state,row,col,len)==0)
+    {
+       printf("You disobeyed the laws. start over");
+       ship_set();
+    }
     map_set(state,row,col,len);
      for(int i=1;i<=len;i++)
     {
@@ -192,17 +198,18 @@ void collector()
         else
             row++;
     }
-    if(ships_position_condition_check(state,row,col,len)==0)
-    {
-       printf("You disobeyed the laws. start over");
-       ship_set();
-    }
+
     ship_num++;
     //4th ship: 2x1
     printf("enter info for ship with length of 2x1:\n\n");
     printf("1)Horizontal\n2)Vertical ::\n");
     scanf("%d%d%d",&state,&row,&col);
     len=2;
+     if(ships_position_condition_check(state,row,col,len)==0)
+    {
+       printf("You disobeyed the laws. start over");
+       ship_set();
+    }
     map_set(state,row,col,len);
      for(int i=1;i<=len;i++)
     {
@@ -212,17 +219,18 @@ void collector()
         else
             row++;
     }
-    if(ships_position_condition_check(state,row,col,len)==0)
-    {
-       printf("You disobeyed the laws. start over");
-       ship_set();
-    }
+
     ship_num++;
     //5th ship: 2x1
     printf("enter info for ship with length of 2x1:\n\n");
     printf("1)Horizontal\n2)Vertical ::\n");
     scanf("%d%d%d",&state,&row,&col);
     len=2;
+    if(ships_position_condition_check(state,row,col,len)==0)
+    {
+       printf("You disobeyed the laws. start over");
+       ship_set();
+    }
     map_set(state,row,col,len);
      for(int i=1;i<=len;i++)
     {
@@ -232,17 +240,18 @@ void collector()
         else
             row++;
     }
-    if(ships_position_condition_check(state,row,col,len)==0)
-    {
-       printf("You disobeyed the laws. start over");
-       ship_set();
-    }
+
     ship_num++;
     //6th ship: 2x1
     printf("enter info for ship with length of 2x1:\n\n");
     printf("1)Horizontal\n2)Vertical ::\n");
     scanf("%d%d%d",&state,&row,&col);
     len=2;
+    if(ships_position_condition_check(state,row,col,len)==0)
+    {
+       printf("You disobeyed the laws. start over");
+       ship_set();
+    }
     map_set(state,row,col,len);
      for(int i=1;i<=len;i++)
     {
@@ -252,17 +261,18 @@ void collector()
         else
             row++;
     }
-    if(ships_position_condition_check(state,row,col,len)==0)
-    {
-       printf("You disobeyed the laws. start over");
-       ship_set();
-    }
+
     ship_num++;
    //7th ship: 2x1
     printf("enter info for ship with length of 4x1:\n\n");
     printf("1)Horizontal\n2)Vertical ::\n");
     scanf("%d%d%d",&state,&row,&col);
     len=1;
+    if(ships_position_condition_check(state,row,col,len)==0)
+    {
+       printf("You disobeyed the laws. start over");
+       ship_set();
+    }
     map_set(state,row,col,len);
      for(int i=1;i<=len;i++)
     {
@@ -272,17 +282,18 @@ void collector()
         else
             row++;
     }
-    if(ships_position_condition_check(state,row,col,len)==0)
-    {
-       printf("You disobeyed the laws. start over");
-       ship_set();
-    }
+
     ship_num++;
     //8th ship: 2x1
     printf("enter info for ship with length of 4x1:\n\n");
     printf("1)Horizontal\n2)Vertical ::\n");
     scanf("%d%d%d",&state,&row,&col);
     len=1;
+    if(ships_position_condition_check(state,row,col,len)==0)
+    {
+       printf("You disobeyed the laws. start over");
+       ship_set();
+    }
     map_set(state,row,col,len);
      for(int i=1;i<=len;i++)
     {
@@ -292,17 +303,18 @@ void collector()
         else
             row++;
     }
-    if(ships_position_condition_check(state,row,col,len)==0)
-    {
-       printf("You disobeyed the laws. start over");
-       ship_set();
-    }
+
     ship_num++;
     //9th ship: 2x1
     printf("enter info for ship with length of 4x1:\n\n");
     printf("1)Horizontal\n2)Vertical ::\n");
     scanf("%d%d%d",&state,&row,&col);
     len=1;
+    if(ships_position_condition_check(state,row,col,len)==0)
+    {
+       printf("You disobeyed the laws. start over");
+       ship_set();
+    }
     map_set(state,row,col,len);
      for(int i=1;i<=len;i++)
     {
@@ -311,11 +323,6 @@ void collector()
             col++;
         else
             row++;
-    }
-    if(ships_position_condition_check(state,row,col,len)==0)
-    {
-       printf("You disobeyed the laws. start over");
-       ship_set();
     }
     ship_num++;
     //10th ship: 2x1
@@ -323,6 +330,11 @@ void collector()
     printf("1)Horizontal\n2)Vertical ::\n");
     scanf("%d%d%d",&state,&row,&col);
     len=1;
+    if(ships_position_condition_check(state,row,col,len)==0)
+    {
+       printf("You disobeyed the laws. start over");
+       ship_set();
+    }
     map_set(state,row,col,len);
      for(int i=1;i<=len;i++)
     {
@@ -331,11 +343,6 @@ void collector()
             col++;
         else
             row++;
-    }
-    if(ships_position_condition_check(state,row,col,len)==0)
-    {
-       printf("You disobeyed the laws. start over");
-       ship_set();
     }
     //ship_num++;
 
@@ -368,12 +375,13 @@ void collector2()
     printf("1)Horizontal\n2)Vertical ::\n");
     scanf("%d%d%d",&state,&row,&col);
     len=3;
-    map2_set(state,row,col,len);
     if(ships_position_condition_check_2(state,row,col,len)==0)
     {
        printf("You disobeyed the laws. start over");
        ship2_set();
     }
+    map2_set(state,row,col,len);
+
     for(int i=1;i<=len;i++)
     {
         Insert2(i,ship2_num,len,row,col);
@@ -388,12 +396,13 @@ void collector2()
     printf("1)Horizontal\n2)Vertical ::\n");
     scanf("%d%d%d",&state,&row,&col);
     len=3;
-    map2_set(state,row,col,len);
     if(ships_position_condition_check_2(state,row,col,len)==0)
     {
        printf("You disobeyed the laws. start over");
        ship2_set();
     }
+    map2_set(state,row,col,len);
+
     for(int i=1;i<=len;i++)
     {
         Insert2(i,ship2_num,len,row,col);
@@ -408,12 +417,13 @@ void collector2()
     printf("1)Horizontal\n2)Vertical ::\n");
     scanf("%d%d%d",&state,&row,&col);
     len=2;
-    map2_set(state,row,col,len);
     if(ships_position_condition_check_2(state,row,col,len)==0)
     {
        printf("You disobeyed the laws. start over");
        ship2_set();
     }
+    map2_set(state,row,col,len);
+
     for(int i=1;i<=len;i++)
     {
         Insert2(i,ship2_num,len,row,col);
@@ -428,12 +438,13 @@ void collector2()
     printf("1)Horizontal\n2)Vertical ::\n");
     scanf("%d%d%d",&state,&row,&col);
     len=2;
-    map2_set(state,row,col,len);
     if(ships_position_condition_check_2(state,row,col,len)==0)
     {
        printf("You disobeyed the laws. start over");
        ship2_set();
     }
+    map2_set(state,row,col,len);
+
     for(int i=1;i<=len;i++)
     {
         Insert2(i,ship2_num,len,row,col);
@@ -448,12 +459,13 @@ void collector2()
     printf("1)Horizontal\n2)Vertical ::\n");
     scanf("%d%d%d",&state,&row,&col);
     len=2;
-    map2_set(state,row,col,len);
     if(ships_position_condition_check_2(state,row,col,len)==0)
     {
        printf("You disobeyed the laws. start over");
        ship2_set();
     }
+    map2_set(state,row,col,len);
+
     for(int i=1;i<=len;i++)
     {
         Insert2(i,ship2_num,len,row,col);
@@ -468,12 +480,13 @@ void collector2()
     printf("1)Horizontal\n2)Vertical ::\n");
     scanf("%d%d%d",&state,&row,&col);
     len=1;
-    map2_set(state,row,col,len);
-    if(ships_position_condition_check_2(state,row,col,len)==0)
+     if(ships_position_condition_check_2(state,row,col,len)==0)
     {
        printf("You disobeyed the laws. start over");
        ship2_set();
     }
+    map2_set(state,row,col,len);
+
     for(int i=1;i<=len;i++)
     {
         Insert2(i,ship2_num,len,row,col);
@@ -488,12 +501,13 @@ void collector2()
     printf("1)Horizontal\n2)Vertical ::\n");
     scanf("%d%d%d",&state,&row,&col);
     len=1;
-    map2_set(state,row,col,len);
      if(ships_position_condition_check_2(state,row,col,len)==0)
     {
        printf("You disobeyed the laws. start over");
        ship2_set();
     }
+    map2_set(state,row,col,len);
+
     for(int i=1;i<=len;i++)
     {
         Insert2(i,ship2_num,len,row,col);
@@ -508,12 +522,13 @@ void collector2()
     printf("1)Horizontal\n2)Vertical ::\n");
     scanf("%d%d%d",&state,&row,&col);
     len=1;
-    map2_set(state,row,col,len);
-    if(ships_position_condition_check_2(state,row,col,len)==0)
+     if(ships_position_condition_check_2(state,row,col,len)==0)
     {
        printf("You disobeyed the laws. start over");
        ship2_set();
     }
+    map2_set(state,row,col,len);
+
     for(int i=1;i<=len;i++)
     {
         Insert2(i,ship2_num,len,row,col);
@@ -528,12 +543,13 @@ void collector2()
     printf("1)Horizontal\n2)Vertical ::\n");
     scanf("%d%d%d",&state,&row,&col);
     len=1;
-    map2_set(state,row,col,len);
     if(ships_position_condition_check_2(state,row,col,len)==0)
     {
        printf("You disobeyed the laws. start over");
        ship2_set();
     }
+    map2_set(state,row,col,len);
+
     for(int i=1;i<=len;i++)
     {
         Insert2(i,ship2_num,len,row,col);
@@ -561,7 +577,7 @@ void map_set(int state,int row,int col,int len)
         else
         {
              printf("CANT FIT SHIP IN MAP!!!!!!! \a");
-             ship_set();
+            // ship_set();
         }
 
 
@@ -580,7 +596,7 @@ void map_set(int state,int row,int col,int len)
           else
         {
              printf("CANT FIT SHIP IN MAP!!!!!!! \a");
-             ship_set();
+            // ship_set();
         }
     }
 }
@@ -770,7 +786,7 @@ void map2_set(int state,int row,int col,int len)
 {
 
 
-    //for that state is horizental
+   //for that state is horizental
     if(state==1)
     {
         if((col+len)<=max)
@@ -785,7 +801,7 @@ void map2_set(int state,int row,int col,int len)
         else
         {
              printf("CANT FIT SHIP IN MAP!!!!!!! \a");
-             ship2_set();
+           //  ship2_set();
         }
 
 
@@ -804,7 +820,7 @@ void map2_set(int state,int row,int col,int len)
           else
         {
              printf("CANT FIT SHIP IN MAP!!!!!!! \a");
-             ship2_set();
+            // ship2_set();
         }
     }
 

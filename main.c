@@ -18,15 +18,20 @@ void Load_last_game();
 void Settings();
 void Score_Board();
 void Exit();
+void menu_collect();
 int main()
 {
     intro();
 //system(COLOR )
     Menu();
+    menu_collect();
+    return 0;
+}
+void menu_collect()
+{
     int x;
     scanf("%d",&x);
     Menu_dec(&x);
-    return 0;
 }
 Menu_dec(int* x)
 {
@@ -126,7 +131,7 @@ switch(ship2_dec)
     break;
 
  case 2:
-    ship_set();
+    ship2_set();
     break;
     }
 
@@ -135,7 +140,8 @@ switch(ship2_dec)
 }
 void Play_with_Bot()
 {
-
+//single player mode
+//here we go again :|
 }
 void Load_game()
 {
