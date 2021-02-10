@@ -1,7 +1,6 @@
 #ifndef GAME_ALGORYTHM_H_INCLUDED
 #define GAME_ALGORYTHM_H_INCLUDED
 #define max 11
-int ship_num=1;
 int map[max][max];
 int map_2[max][max];
 struct ship{
@@ -16,14 +15,7 @@ struct ship{
 typedef struct ship ship;
 ship* head1;
 ship* head2;
-ship* head3;
-ship* head4;
-ship* head5;
-ship* head6;
-ship* head7;
-ship* head8;
-ship* head9;
-ship* head10;
+/*ship* head2;ship* head3;ship* head4;ship* head5;ship* head6;ship* head7;ship* head8;ship* head9;ship* head10;*/
 void show_initial_map();
 void game_inst();
 void collector();
@@ -32,14 +24,6 @@ void map_set(int state,int row,int col,int len);
 void link_maker(int state,int row,int col,int len);
 void Insert1(int i,int number,int len,int row,int col);
 void Insert2(int i,int number,int len,int row,int col);
-void Insert3(int i,int number,int len,int row,int col);
-void Insert4(int i,int number,int len,int row,int col);
-void Insert5(int i,int number,int len,int row,int col);
-void Insert6(int i,int number,int len,int row,int col);
-void Insert7(int i,int number,int len,int row,int col);
-void Insert8(int i,int number,int len,int row,int col);
-void Insert9(int i,int number,int len,int row,int col);
-void Insert10(int i,int number,int len,int row,int col);
 int ships_position_condition_check(int state,int row,int col,int len);
 int search_ship(int row,int col);
 void ship2_set();
@@ -48,30 +32,18 @@ void collector2();
 void map2_set(int state,int row,int col,int len);
 void show_map_2();
 int ships_position_condition_check_2(int state,int row,int col,int len);
-
-
 void ship_set()
 {
     head1=NULL;
-    head2=NULL;
-    head3=NULL;
-    head4=NULL;
-    head5=NULL;
-    head6=NULL;
-    head7=NULL;
-    head8=NULL;
-    head9=NULL;
-    head10=NULL;
      printf("This is your main map comrade:\n\n");
      show_initial_map();
      game_inst();
      collector();
-
-
 }
 
 void ship2_set()
 {
+    head2=NULL;
     printf("this is  your main map comrade: \n\n ");
     show_intial_map2();
     game_inst();
@@ -166,6 +138,7 @@ void game_inst()
 }
 void collector()
 {
+    int ship_num=1;
     //first ship 5x1
     printf("enter info for ship with length of 5x1\n\n");
     printf("1)Horizontal\n2)Vertical ::\n");
@@ -193,7 +166,7 @@ void collector()
     map_set(state,row,col,len);
     for(int i=1;i<=len;i++)
     {
-       Insert2(i,ship_num,len,row,col);
+       Insert1(i,ship_num,len,row,col);
         if(state==1)
             col++;
         else
@@ -213,7 +186,7 @@ void collector()
     map_set(state,row,col,len);
      for(int i=1;i<=len;i++)
     {
-        Insert3(i,ship_num,len,row,col);
+        Insert1(i,ship_num,len,row,col);
         if(state==1)
             col++;
         else
@@ -233,7 +206,7 @@ void collector()
     map_set(state,row,col,len);
      for(int i=1;i<=len;i++)
     {
-       Insert4(i,ship_num,len,row,col);
+       Insert1(i,ship_num,len,row,col);
         if(state==1)
             col++;
         else
@@ -253,7 +226,7 @@ void collector()
     map_set(state,row,col,len);
      for(int i=1;i<=len;i++)
     {
-       Insert5(i,ship_num,len,row,col);
+       Insert1(i,ship_num,len,row,col);
         if(state==1)
             col++;
         else
@@ -273,7 +246,7 @@ void collector()
     map_set(state,row,col,len);
      for(int i=1;i<=len;i++)
     {
-        Insert6(i,ship_num,len,row,col);
+        Insert1(i,ship_num,len,row,col);
         if(state==1)
             col++;
         else
@@ -293,7 +266,7 @@ void collector()
     map_set(state,row,col,len);
      for(int i=1;i<=len;i++)
     {
-        Insert7(i,ship_num,len,row,col);
+        Insert1(i,ship_num,len,row,col);
         if(state==1)
             col++;
         else
@@ -313,7 +286,7 @@ void collector()
     map_set(state,row,col,len);
      for(int i=1;i<=len;i++)
     {
-       Insert8(i,ship_num,len,row,col);
+       Insert1(i,ship_num,len,row,col);
         if(state==1)
             col++;
         else
@@ -333,7 +306,7 @@ void collector()
     map_set(state,row,col,len);
      for(int i=1;i<=len;i++)
     {
-       Insert9(i,ship_num,len,row,col);
+       Insert1(i,ship_num,len,row,col);
         if(state==1)
             col++;
         else
@@ -353,7 +326,7 @@ void collector()
     map_set(state,row,col,len);
      for(int i=1;i<=len;i++)
     {
-        Insert10(i,ship_num,len,row,col);
+        Insert1(i,ship_num,len,row,col);
         if(state==1)
             col++;
         else
@@ -369,6 +342,8 @@ void collector()
 }
 void collector2()
 {
+    int ship2_num=1;
+
     //first ship 5x1
     printf("enter info for ship with length of 5x1\n\n");
     printf("1)Horizontal\n2)Vertical ::\n");
@@ -379,6 +354,15 @@ void collector2()
     scanf("%d",&row);
     scanf("%d",&col);
     map2_set(state,row,col,len);
+    for(int i=1;i<=len;i++)
+    {
+        Insert2(i,ship2_num,len,row,col);
+        if(state==1)
+            col++;
+        else
+            row++;
+    }
+    ship2_num++;
     //2nd ship: 3x1
     printf("enter info for ship with length of 3x1:\n\n");
     printf("1)Horizontal\n2)Vertical ::\n");
@@ -390,7 +374,15 @@ void collector2()
        printf("You disobeyed the laws. start over");
        ship2_set();
     }
-    ship_num++;
+    for(int i=1;i<=len;i++)
+    {
+        Insert2(i,ship2_num,len,row,col);
+        if(state==1)
+            col++;
+        else
+            row++;
+    }
+    ship2_num++;
     //3rd ship: 3x1
     printf("enter info for ship with length of 3x1:\n\n");
     printf("1)Horizontal\n2)Vertical ::\n");
@@ -402,6 +394,15 @@ void collector2()
        printf("You disobeyed the laws. start over");
        ship2_set();
     }
+    for(int i=1;i<=len;i++)
+    {
+        Insert2(i,ship2_num,len,row,col);
+        if(state==1)
+            col++;
+        else
+            row++;
+    }
+    ship2_num++;
     //4th ship: 2x1
     printf("enter info for ship with length of 2x1:\n\n");
     printf("1)Horizontal\n2)Vertical ::\n");
@@ -413,6 +414,15 @@ void collector2()
        printf("You disobeyed the laws. start over");
        ship2_set();
     }
+    for(int i=1;i<=len;i++)
+    {
+        Insert2(i,ship2_num,len,row,col);
+        if(state==1)
+            col++;
+        else
+            row++;
+    }
+    ship2_num++;
     //5th ship: 2x1
     printf("enter info for ship with length of 2x1:\n\n");
     printf("1)Horizontal\n2)Vertical ::\n");
@@ -424,6 +434,15 @@ void collector2()
        printf("You disobeyed the laws. start over");
        ship2_set();
     }
+    for(int i=1;i<=len;i++)
+    {
+        Insert2(i,ship2_num,len,row,col);
+        if(state==1)
+            col++;
+        else
+            row++;
+    }
+    ship2_num++;
     //6th ship: 2x1
     printf("enter info for ship with length of 2x1:\n\n");
     printf("1)Horizontal\n2)Vertical ::\n");
@@ -435,6 +454,15 @@ void collector2()
        printf("You disobeyed the laws. start over");
        ship2_set();
     }
+    for(int i=1;i<=len;i++)
+    {
+        Insert2(i,ship2_num,len,row,col);
+        if(state==1)
+            col++;
+        else
+            row++;
+    }
+    ship2_num++;
    //7th ship: 2x1
     printf("enter info for ship with length of 4x1:\n\n");
     printf("1)Horizontal\n2)Vertical ::\n");
@@ -446,6 +474,15 @@ void collector2()
        printf("You disobeyed the laws. start over");
        ship2_set();
     }
+    for(int i=1;i<=len;i++)
+    {
+        Insert2(i,ship2_num,len,row,col);
+        if(state==1)
+            col++;
+        else
+            row++;
+    }
+    ship2_num++;
     //8th ship: 2x1
     printf("enter info for ship with length of 4x1:\n\n");
     printf("1)Horizontal\n2)Vertical ::\n");
@@ -457,6 +494,15 @@ void collector2()
        printf("You disobeyed the laws. start over");
        ship2_set();
     }
+    for(int i=1;i<=len;i++)
+    {
+        Insert2(i,ship2_num,len,row,col);
+        if(state==1)
+            col++;
+        else
+            row++;
+    }
+    ship2_num++;
     //9th ship: 2x1
     printf("enter info for ship with length of 4x1:\n\n");
     printf("1)Horizontal\n2)Vertical ::\n");
@@ -468,6 +514,15 @@ void collector2()
        printf("You disobeyed the laws. start over");
        ship2_set();
     }
+    for(int i=1;i<=len;i++)
+    {
+        Insert2(i,ship2_num,len,row,col);
+        if(state==1)
+            col++;
+        else
+            row++;
+    }
+    ship2_num++;
     //10th ship: 2x1
     printf("enter info for ship with length of 4x1:\n\n");
     printf("1)Horizontal\n2)Vertical ::\n");
@@ -479,6 +534,15 @@ void collector2()
        printf("You disobeyed the laws. start over");
        ship2_set();
     }
+    for(int i=1;i<=len;i++)
+    {
+        Insert2(i,ship2_num,len,row,col);
+        if(state==1)
+            col++;
+        else
+            row++;
+    }
+    //ship2_num++;
 }
 void map_set(int state,int row,int col,int len)
 {
@@ -561,7 +625,7 @@ void show_map()
 
 
 
-//the proper func to make linked list for ship of size 5x1
+//the proper func to make linked list for ships own by player1
 void Insert1(int i,int num,int len,int row,int col)
 {
     ship* temp=(ship *)malloc(sizeof(struct ship));
@@ -591,7 +655,7 @@ void Insert1(int i,int num,int len,int row,int col)
 
     }
 }
-//the proper func to make linked list for 1st ship of size 3x1
+//the proper func to make linked list for ships owned by player2
 void Insert2(int i,int number,int len,int row,int col)
 {
     ship* temp=(ship *)malloc(sizeof(struct ship));
@@ -617,220 +681,6 @@ void Insert2(int i,int number,int len,int row,int col)
 
     }
 }
-//the proper func to make linked list for 2nd ship of size 3x1
-void Insert3(int i,int number,int len,int row,int col)
-{
-    ship* temp=(ship *)malloc(sizeof(struct ship));
-    ship* temp2=(ship *)malloc(sizeof(struct ship));
-
-   temp->index=i;
-    temp->indicator=number;
-    temp->len=len;
-    temp->next=NULL;
-    temp2=head3;
-    if(head3==NULL)
-    {
-        head3=temp;
-    }
-    else
-    {
-
-        while(temp2->next!=NULL)
-        {
-            temp2=temp2->next;
-        }
-        temp2->next=temp;
-
-    }
-}
-//the proper func to make linked list for 1st ship of size 2x1
-void Insert4(int i,int number,int len,int row,int col)
-{
-    ship* temp=(ship *)malloc(sizeof(struct ship));
-    ship* temp2=(ship *)malloc(sizeof(struct ship));
-
-   temp->index=i;
-    temp->indicator=number;
-    temp->len=len;
-    temp->next=NULL;
-    temp2=head4;
-    if(head4==NULL)
-    {
-        head4=temp;
-    }
-    else
-    {
-
-        while(temp2->next!=NULL)
-        {
-            temp2=temp2->next;
-        }
-        temp2->next=temp;
-
-    }
-}
-//the proper func to make linked list for 2nd ship of size 2x1
-void Insert5(int i,int number,int len,int row,int col)
-{
-    ship* temp=(ship *)malloc(sizeof(struct ship));
-    ship* temp2=(ship *)malloc(sizeof(struct ship));
-
-   temp->index=i;
-    temp->indicator=number;
-    temp->len=len;
-    temp->next=NULL;
-    temp2=head5;
-    if(head5==NULL)
-    {
-        head5=temp;
-    }
-    else
-    {
-
-        while(temp2->next!=NULL)
-        {
-            temp2=temp2->next;
-        }
-        temp2->next=temp;
-
-    }
-}
-
-//the proper func to make linked list for 3rd ship of size 2x1
-void Insert6(int i,int number,int len,int row,int col)
-{
-    ship* temp=(ship *)malloc(sizeof(struct ship));
-    ship* temp2=(ship *)malloc(sizeof(struct ship));
-
-   temp->index=i;
-    temp->indicator=number;
-    temp->len=len;
-    temp->next=NULL;
-    temp2=head6;
-    if(head6==NULL)
-    {
-        head6=temp;
-    }
-    else
-    {
-
-        while(temp2->next!=NULL)
-        {
-            temp2=temp2->next;
-        }
-        temp2->next=temp;
-
-    }
-}
-
-//the proper func to make linked list for 1st ship of size 4x1
-void Insert7(int i,int number,int len,int row,int col)
-{
-    ship* temp=(ship *)malloc(sizeof(struct ship));
-    ship* temp2=(ship *)malloc(sizeof(struct ship));
-
-   temp->index=i;
-    temp->indicator=number;
-    temp->len=len;
-    temp->next=NULL;
-    temp2=head7;
-    if(head7==NULL)
-    {
-        head7=temp;
-    }
-    else
-    {
-
-        while(temp2->next!=NULL)
-        {
-            temp2=temp2->next;
-        }
-        temp2->next=temp;
-
-    }
-}
-
-//the proper func to make linked list for 2nd ship of size 4x1
-void Insert8(int i,int number,int len,int row,int col)
-{
-    ship* temp=(ship *)malloc(sizeof(struct ship));
-    ship* temp2=(ship *)malloc(sizeof(struct ship));
-
-   temp->index=i;
-    temp->indicator=number;
-    temp->len=len;
-    temp->next=NULL;
-    temp2=head8;
-    if(head8==NULL)
-    {
-        head8=temp;
-    }
-    else
-    {
-
-        while(temp2->next!=NULL)
-        {
-            temp2=temp2->next;
-        }
-        temp2->next=temp;
-
-    }
-}
-
-//the proper func to make linked list for 3rd ship of size 4x1
-void Insert9(int i,int number,int len,int row,int col)
-{
-    ship* temp=(ship *)malloc(sizeof(struct ship));
-    ship* temp2=(ship *)malloc(sizeof(struct ship));
-
-   temp->index=i;
-    temp->indicator=number;
-    temp->len=len;
-    temp->next=NULL;
-    temp2=head9;
-    if(head9==NULL)
-    {
-        head9=temp;
-    }
-    else
-    {
-
-        while(temp2->next!=NULL)
-        {
-            temp2=temp2->next;
-        }
-        temp2->next=temp;
-
-    }
-}
-
-//the proper func to make linked list for 4th ship of size 4x1
-void Insert10(int i,int number,int len,int row,int col)
-{
-    ship* temp=(ship *)malloc(sizeof(struct ship));
-    ship* temp2=(ship *)malloc(sizeof(struct ship));
-
-   temp->index=i;
-    temp->indicator=number;
-    temp->len=len;
-    temp->next=NULL;
-    temp2=head10;
-    if(head10==NULL)
-    {
-        head10=temp;
-    }
-    else
-    {
-
-        while(temp2->next!=NULL)
-        {
-            temp2=temp2->next;
-        }
-        temp2->next=temp;
-
-    }
-}
-
 int ships_position_condition_check(int state,int row, int col,int len)
 {
 
