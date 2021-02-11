@@ -9,6 +9,7 @@
 void display_message();
 void display_message()
 {
+
     printf("what you are searching for is not available in this version of game"
            "\n check them out in next updates :)\n you will be redirected to menu");
     Menu();

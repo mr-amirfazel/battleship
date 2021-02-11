@@ -435,6 +435,7 @@ void play_with_adolf()
     user_map();
     adolf_map();
     map_initializer(user_playing_map);
+    map_initializer(adolf_playing_map);
 
     while(check_end_of_ww2())
     {
@@ -1200,6 +1201,7 @@ void user_move()
     }
     else
     {
+         user_playing_map[row][col]=69;
         display_game_map(user_playing_map);
         printf("\nyou were UNlucky this time comrade.\nYou failed kremlin highlander.\n");
         Sleep(500);
@@ -1228,7 +1230,7 @@ void adolf_move()
     }
     if(user_vs_bot_map[row][col]==83)
     {
-        user_playing_map[row][col]=69;
+        adolf_playing_map[row][col]=69;
         display_game_map(adolf_playing_map);
         printf("\nwe can hear proud noises from Führer\n");
         Sleep(3000);
@@ -1237,6 +1239,7 @@ void adolf_move()
     }
     else
     {
+         adolf_playing_map[row][col]=87;
         display_game_map(adolf_playing_map);
         printf("\nFührer is Disappointed\n");
         Sleep(500);
@@ -1249,7 +1252,7 @@ int check_end_of_ww2()
 {
     //1 for continue game
     //0 for finish
-    if(check_auschwit_map()&&check_USSR())
+    if(check_auschwitz_map()&&check_USSR())
         return 1;
     else
         return 0;
