@@ -1,5 +1,9 @@
-#ifndef GAME_ALGORYTHM_H_INCLUDED
-#define GAME_ALGORYTHM_H_INCLUDED
+//
+// Created by ASUS on ۱۱/۰۲/۲۰۲۱.
+//
+
+#ifndef PAYANTERM_GAME_ALGORYTHM_H
+#define PAYANTERM_GAME_ALGORYTHM_H
 #define max 11
 int map[max][max];
 int map_2[max][max];
@@ -35,10 +39,10 @@ int ships_position_condition_check_2(int state,int row,int col,int len);
 void ship_set()
 {
     head1=NULL;
-     printf("This is your main map comrade:\n\n");
-     show_initial_map();
-     game_inst();
-     collector();
+    printf("This is your main map comrade:\n\n");
+    show_initial_map();
+    game_inst();
+    collector();
 }
 
 void ship2_set()
@@ -53,17 +57,17 @@ void ship2_set()
 void show_initial_map()
 {
 
-   int n=1,t=1;
+    int n=1,t=1;
 
-   for(int i=0;i<max;i++)
-   {
+    for(int i=0;i<max;i++)
+    {
 
-       for(int j=0;j<max;j++)
-       {
+        for(int j=0;j<max;j++)
+        {
             if((i==0)&&j==0)
-                {map[i][j]=0;
-                  printf("\t");
-                }
+            {map[i][j]=0;
+                printf("\t");
+            }
             else if(i==0)
             {
                 map[i][j]=t;
@@ -83,25 +87,25 @@ void show_initial_map()
 
             }
 
-       }
-       printf("\n");
+        }
+        printf("\n");
 
 
-   }
+    }
 }
 void show_intial_map2()
 {
-   int n=1,t=1;
+    int n=1,t=1;
 
-   for(int i=0;i<max;i++)
-   {
+    for(int i=0;i<max;i++)
+    {
 
-       for(int j=0;j<max;j++)
-       {
+        for(int j=0;j<max;j++)
+        {
             if((i==0)&&j==0)
-                {map_2[i][j]=0;
-                  printf("\t");
-                }
+            {map_2[i][j]=0;
+                printf("\t");
+            }
             else if(i==0)
             {
                 map_2[i][j]=t;
@@ -121,11 +125,11 @@ void show_intial_map2()
 
             }
 
-       }
-       printf("\n");
+        }
+        printf("\n");
 
 
-   }
+    }
 }
 
 void game_inst()
@@ -165,13 +169,13 @@ void collector()
     len=3;
     if(ships_position_condition_check(state,row,col,len)==0)
     {
-       printf("You disobeyed the laws. start over");
-       ship_set();
+        printf("You disobeyed the laws. start over");
+        ship_set();
     }
     map_set(state,row,col,len);
     for(int i=1;i<=len;i++)
     {
-       Insert1(i,ship_num,len,row,col);
+        Insert1(i,ship_num,len,row,col);
         if(state==1)
             col++;
         else
@@ -186,11 +190,11 @@ void collector()
     len=3;
     if(ships_position_condition_check(state,row,col,len)==0)
     {
-       printf("You disobeyed the laws. start over");
-       ship_set();
+        printf("You disobeyed the laws. start over");
+        ship_set();
     }
     map_set(state,row,col,len);
-     for(int i=1;i<=len;i++)
+    for(int i=1;i<=len;i++)
     {
         Insert1(i,ship_num,len,row,col);
         if(state==1)
@@ -205,15 +209,15 @@ void collector()
     printf("1)Horizontal\n2)Vertical ::\n");
     scanf("%d%d%d",&state,&row,&col);
     len=2;
-     if(ships_position_condition_check(state,row,col,len)==0)
+    if(ships_position_condition_check(state,row,col,len)==0)
     {
-       printf("You disobeyed the laws. start over");
-       ship_set();
+        printf("You disobeyed the laws. start over");
+        ship_set();
     }
     map_set(state,row,col,len);
-     for(int i=1;i<=len;i++)
+    for(int i=1;i<=len;i++)
     {
-       Insert1(i,ship_num,len,row,col);
+        Insert1(i,ship_num,len,row,col);
         if(state==1)
             col++;
         else
@@ -228,13 +232,13 @@ void collector()
     len=2;
     if(ships_position_condition_check(state,row,col,len)==0)
     {
-       printf("You disobeyed the laws. start over");
-       ship_set();
+        printf("You disobeyed the laws. start over");
+        ship_set();
     }
     map_set(state,row,col,len);
-     for(int i=1;i<=len;i++)
+    for(int i=1;i<=len;i++)
     {
-       Insert1(i,ship_num,len,row,col);
+        Insert1(i,ship_num,len,row,col);
         if(state==1)
             col++;
         else
@@ -249,11 +253,11 @@ void collector()
     len=2;
     if(ships_position_condition_check(state,row,col,len)==0)
     {
-       printf("You disobeyed the laws. start over");
-       ship_set();
+        printf("You disobeyed the laws. start over");
+        ship_set();
     }
     map_set(state,row,col,len);
-     for(int i=1;i<=len;i++)
+    for(int i=1;i<=len;i++)
     {
         Insert1(i,ship_num,len,row,col);
         if(state==1)
@@ -263,18 +267,18 @@ void collector()
     }
 
     ship_num++;
-   //7th ship: 2x1
+    //7th ship: 2x1
     printf("enter info for ship with length of 4x1:\n\n");
     printf("1)Horizontal\n2)Vertical ::\n");
     scanf("%d%d%d",&state,&row,&col);
     len=1;
     if(ships_position_condition_check(state,row,col,len)==0)
     {
-       printf("You disobeyed the laws. start over");
-       ship_set();
+        printf("You disobeyed the laws. start over");
+        ship_set();
     }
     map_set(state,row,col,len);
-     for(int i=1;i<=len;i++)
+    for(int i=1;i<=len;i++)
     {
         Insert1(i,ship_num,len,row,col);
         if(state==1)
@@ -291,13 +295,13 @@ void collector()
     len=1;
     if(ships_position_condition_check(state,row,col,len)==0)
     {
-       printf("You disobeyed the laws. start over");
-       ship_set();
+        printf("You disobeyed the laws. start over");
+        ship_set();
     }
     map_set(state,row,col,len);
-     for(int i=1;i<=len;i++)
+    for(int i=1;i<=len;i++)
     {
-       Insert1(i,ship_num,len,row,col);
+        Insert1(i,ship_num,len,row,col);
         if(state==1)
             col++;
         else
@@ -312,13 +316,13 @@ void collector()
     len=1;
     if(ships_position_condition_check(state,row,col,len)==0)
     {
-       printf("You disobeyed the laws. start over");
-       ship_set();
+        printf("You disobeyed the laws. start over");
+        ship_set();
     }
     map_set(state,row,col,len);
-     for(int i=1;i<=len;i++)
+    for(int i=1;i<=len;i++)
     {
-       Insert1(i,ship_num,len,row,col);
+        Insert1(i,ship_num,len,row,col);
         if(state==1)
             col++;
         else
@@ -332,11 +336,11 @@ void collector()
     len=1;
     if(ships_position_condition_check(state,row,col,len)==0)
     {
-       printf("You disobeyed the laws. start over");
-       ship_set();
+        printf("You disobeyed the laws. start over");
+        ship_set();
     }
     map_set(state,row,col,len);
-     for(int i=1;i<=len;i++)
+    for(int i=1;i<=len;i++)
     {
         Insert1(i,ship_num,len,row,col);
         if(state==1)
@@ -377,8 +381,8 @@ void collector2()
     len=3;
     if(ships_position_condition_check_2(state,row,col,len)==0)
     {
-       printf("You disobeyed the laws. start over");
-       ship2_set();
+        printf("You disobeyed the laws. start over");
+        ship2_set();
     }
     map2_set(state,row,col,len);
 
@@ -393,13 +397,13 @@ void collector2()
     ship2_num++;
     //3rd ship: 3x1
     printf("enter info for ship with length of 3x1:\n\n");
-    printf("1)Horizontal\n2)Vertical ::\n");
+    printf("1)Horizontal\n2)Vertical :\n");
     scanf("%d%d%d",&state,&row,&col);
     len=3;
     if(ships_position_condition_check_2(state,row,col,len)==0)
     {
-       printf("You disobeyed the laws. start over");
-       ship2_set();
+        printf("You disobeyed the laws. start over");
+        ship2_set();
     }
     map2_set(state,row,col,len);
 
@@ -419,8 +423,8 @@ void collector2()
     len=2;
     if(ships_position_condition_check_2(state,row,col,len)==0)
     {
-       printf("You disobeyed the laws. start over");
-       ship2_set();
+        printf("You disobeyed the laws. start over");
+        ship2_set();
     }
     map2_set(state,row,col,len);
 
@@ -440,8 +444,8 @@ void collector2()
     len=2;
     if(ships_position_condition_check_2(state,row,col,len)==0)
     {
-       printf("You disobeyed the laws. start over");
-       ship2_set();
+        printf("You disobeyed the laws. start over");
+        ship2_set();
     }
     map2_set(state,row,col,len);
 
@@ -461,8 +465,8 @@ void collector2()
     len=2;
     if(ships_position_condition_check_2(state,row,col,len)==0)
     {
-       printf("You disobeyed the laws. start over");
-       ship2_set();
+        printf("You disobeyed the laws. start over");
+        ship2_set();
     }
     map2_set(state,row,col,len);
 
@@ -475,15 +479,15 @@ void collector2()
             row++;
     }
     ship2_num++;
-   //7th ship: 2x1
+    //7th ship: 2x1
     printf("enter info for ship with length of 4x1:\n\n");
     printf("1)Horizontal\n2)Vertical ::\n");
     scanf("%d%d%d",&state,&row,&col);
     len=1;
-     if(ships_position_condition_check_2(state,row,col,len)==0)
+    if(ships_position_condition_check_2(state,row,col,len)==0)
     {
-       printf("You disobeyed the laws. start over");
-       ship2_set();
+        printf("You disobeyed the laws. start over");
+        ship2_set();
     }
     map2_set(state,row,col,len);
 
@@ -501,10 +505,10 @@ void collector2()
     printf("1)Horizontal\n2)Vertical ::\n");
     scanf("%d%d%d",&state,&row,&col);
     len=1;
-     if(ships_position_condition_check_2(state,row,col,len)==0)
+    if(ships_position_condition_check_2(state,row,col,len)==0)
     {
-       printf("You disobeyed the laws. start over");
-       ship2_set();
+        printf("You disobeyed the laws. start over");
+        ship2_set();
     }
     map2_set(state,row,col,len);
 
@@ -522,10 +526,10 @@ void collector2()
     printf("1)Horizontal\n2)Vertical ::\n");
     scanf("%d%d%d",&state,&row,&col);
     len=1;
-     if(ships_position_condition_check_2(state,row,col,len)==0)
+    if(ships_position_condition_check_2(state,row,col,len)==0)
     {
-       printf("You disobeyed the laws. start over");
-       ship2_set();
+        printf("You disobeyed the laws. start over");
+        ship2_set();
     }
     map2_set(state,row,col,len);
 
@@ -545,8 +549,8 @@ void collector2()
     len=1;
     if(ships_position_condition_check_2(state,row,col,len)==0)
     {
-       printf("You disobeyed the laws. start over");
-       ship2_set();
+        printf("You disobeyed the laws. start over");
+        ship2_set();
     }
     map2_set(state,row,col,len);
 
@@ -578,13 +582,13 @@ void map_set(int state,int row,int col,int len)
         }
         else
         {
-             printf("CANT FIT SHIP IN MAP!!!!!!! \a");
-             ship_set();
+            printf("CANT FIT SHIP IN MAP!!!!!!! \a");
+            ship_set();
         }
 
 
     }
-    //for that state is vertical
+        //for that state is vertical
     else if(state==2)
     {
         if((row+len)<=max)
@@ -595,25 +599,25 @@ void map_set(int state,int row,int col,int len)
             }
             show_map();
         }
-          else
+        else
         {
-             printf("CANT FIT SHIP IN MAP!!!!!!! \a");
-             ship_set();
+            printf("CANT FIT SHIP IN MAP!!!!!!! \a");
+            ship_set();
         }
     }
 }
 void show_map()
 {
     for(int i=0;i<max;i++)
-   {
+    {
 
-       for(int j=0;j<max;j++)
-       {
+        for(int j=0;j<max;j++)
+        {
             if((i==0)&&j==0)
-                {
-                    //map[i][j]=0;
-                  printf("\t");
-                }
+            {
+                //map[i][j]=0;
+                printf("\t");
+            }
             else if(i==0)
             {
                 //map[i][j]=t;
@@ -622,22 +626,22 @@ void show_map()
             }
             else if(j==0)
             {
-               // map[i][j]=n;
-               // n++;
+                // map[i][j]=n;
+                // n++;
                 printf("%d\t",map[i][j]);
             }
             else
             {
-               // map[i][j]=87;
+                // map[i][j]=87;
                 printf("%c\t",map[i][j]);
 
             }
 
-       }
-       printf("\n");
+        }
+        printf("\n");
 
 
-   }
+    }
 }
 //insert funcs for linked list may get a change
 
@@ -647,9 +651,9 @@ void show_map()
 void Insert1(int i,int num,int len,int row,int col)
 {
     ship* temp=(ship *)malloc(sizeof(struct ship));
-     ship* temp2=(ship *)malloc(sizeof(struct ship));
+    ship* temp2=(ship *)malloc(sizeof(struct ship));
 
-   temp->index=i;
+    temp->index=i;
     temp->indicator=num;
     temp->len=len;
     temp->row=row;
@@ -678,7 +682,7 @@ void Insert2(int i,int number,int len,int row,int col)
     ship* temp=(ship *)malloc(sizeof(struct ship));
     ship* temp2=(ship *)malloc(sizeof(struct ship));
 
-   temp->index=i;
+    temp->index=i;
     temp->indicator=number;
     temp->len=len;
     temp->next=NULL;
@@ -706,7 +710,7 @@ int ships_position_condition_check(int state,int row, int col,int len)
         if(len==3)
         {
             if((map[row-1][col]==83)||(map[row+1][col]==83)||(map[row][col-1]==83)||(map[row-1][col+1]==83)||(map[row+1][col+1]==83)||(map[row][col+3]==83)||(map[row-1][col+2]==83)||(map[row+1][col+2]==83))
-            return 0;
+                return 0;
         }
         if(len==2)
         {
@@ -734,22 +738,22 @@ int ships_position_condition_check(int state,int row, int col,int len)
         }
         if(len==1)
         {
-             if((map[row][col+1]==83)||(map[row][col-1]==83)||(map[row-1][col]==83)||(map[row+1][col]==83))
+            if((map[row][col+1]==83)||(map[row][col-1]==83)||(map[row-1][col]==83)||(map[row+1][col]==83))
                 return 0;
         }
         return 1;
 
     }
 }
-////proper funcs for second player map set:: /:
+//proper funcs for second player map set:: /:
 int ships_position_condition_check_2(int state,int row,int col,int len)
 {
-   if(state==1)
+    if(state==1)
     {
         if(len==3)
         {
             if((map_2[row-1][col]==83)||(map_2[row+1][col]==83)||(map_2[row][col-1]==83)||(map_2[row-1][col+1]==83)||(map_2[row+1][col+1]==83)||(map_2[row][col+3]==83)||(map_2[row-1][col+2]==83)||(map_2[row+1][col+2]==83))
-            return 0;
+                return 0;
         }
         if(len==2)
         {
@@ -777,7 +781,7 @@ int ships_position_condition_check_2(int state,int row,int col,int len)
         }
         if(len==1)
         {
-             if((map_2[row][col+1]==83)||(map_2[row][col-1]==83)||(map_2[row-1][col]==83)||(map_2[row+1][col]==83))
+            if((map_2[row][col+1]==83)||(map_2[row][col-1]==83)||(map_2[row-1][col]==83)||(map_2[row+1][col]==83))
                 return 0;
         }
         return 1;
@@ -787,7 +791,7 @@ void map2_set(int state,int row,int col,int len)
 {
 
 
-   //for that state is horizental
+    //for that state is horizental
     if(state==1)
     {
         if((col+len)<=max)
@@ -801,13 +805,13 @@ void map2_set(int state,int row,int col,int len)
         }
         else
         {
-             printf("CANT FIT SHIP IN MAP!!!!!!! \a");
-           //  ship2_set();
+            printf("CANT FIT SHIP IN MAP!!!!!!! \a");
+            //  ship2_set();
         }
 
 
     }
-    //for that state is vertical
+        //for that state is vertical
     else if(state==2)
     {
         if((row+len)<=max)
@@ -818,9 +822,9 @@ void map2_set(int state,int row,int col,int len)
             }
             show_map_2();
         }
-          else
+        else
         {
-             printf("CANT FIT SHIP IN MAP!!!!!!! \a");
+            printf("CANT FIT SHIP IN MAP!!!!!!! \a");
             // ship2_set();
         }
     }
@@ -828,16 +832,16 @@ void map2_set(int state,int row,int col,int len)
 }
 void show_map_2()
 {
-     for(int i=0;i<max;i++)
-   {
+    for(int i=0;i<max;i++)
+    {
 
-       for(int j=0;j<max;j++)
-       {
+        for(int j=0;j<max;j++)
+        {
             if((i==0)&&j==0)
-                {
-                    //map[i][j]=0;
-                  printf("\t");
-                }
+            {
+                //map[i][j]=0;
+                printf("\t");
+            }
             else if(i==0)
             {
                 //map[i][j]=t;
@@ -846,21 +850,21 @@ void show_map_2()
             }
             else if(j==0)
             {
-               // map[i][j]=n;
-               // n++;
+                // map[i][j]=n;
+                // n++;
                 printf("%d\t",map_2[i][j]);
             }
             else
             {
-               // map[i][j]=87;
+                // map[i][j]=87;
                 printf("%c\t",map_2[i][j]);
 
             }
 
-       }
-       printf("\n");
+        }
+        printf("\n");
 
 
-   }
+    }
 }
-#endif // GAME_ALGORYTHM_H_INCLUDED
+#endif //PAYANTERM_GAME_ALGORYTHM_H

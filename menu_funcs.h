@@ -1,5 +1,10 @@
-#ifndef MENU_FUNCS_H_INCLUDED
-#define MENU_FUNCS_H_INCLUDED
+//
+// Created by ASUS on ۱۱/۰۲/۲۰۲۱.
+//
+
+#ifndef PAYANTERM_MENU_FUNCS_H
+#define PAYANTERM_MENU_FUNCS_H
+
 FILE *fp;
 FILE *fsize;
 void add_user()
@@ -18,15 +23,18 @@ void add_user()
 void show_user()
 {
     fp=fopen("users.bin","a+b");
-   // fsize=fopen("name_sizes.bin","r+b");
+    // fsize=fopen("name_sizes.bin","r+b");
     int i=1;
     char name[100];
-  // while()
+    // while()
 
 
-fclose(fp);
+    fclose(fp);
 
 
 }
-
-#endif // MENU_FUNCS_H_INCLUDED
+void finish_game()
+{
+    printf("\n see you soon comrade\n");
+}
+#endif //PAYANTERM_MENU_FUNCS_H
